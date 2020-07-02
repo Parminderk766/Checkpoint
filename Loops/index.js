@@ -28,7 +28,10 @@ CREATE A FUNCTION THAT ACCEPTS ONE ARGUMENT, THE NUMBER OF TIMES IT WILL CONSOLE
 */
 
 function dynamicHelloWorld(num) {
-  // CODE HERE
+  while(num > 0){
+    console.log("hello world")
+    num--;
+  }
 }
 
 /*
@@ -39,7 +42,9 @@ CREATE A FUNCTION THAT ACCEPTS A STRING AND WILL LOG TO THE CONSOLE EACH CHARACT
 */
 
 function logEachChar(str) {
-  // CODE HERE
+  for(let i = 0; i < str.length; i++){
+    console.log(str[i])
+  }
 }
 
 /*
@@ -54,7 +59,13 @@ e.g. checkIfCharExists('hello', 'l') ===> true
 */
 
 function checkIfCharExists(str, char) {
-  // CODE HERE
+  let bool = false;
+  for (var i = 0; i < str.length; i++) {
+    if(str[i] === char){
+      bool = true;
+    }
+  }
+  return bool;
 }
 
 /*
@@ -68,7 +79,9 @@ e.g. indexOf('hello', 'l') ===> 2
 */
 
 function indexOf(str, char) {
-  // CODE HERE
+  if(str.includes(char))return str.indexOf(char);
+  else return -1;
+  
 }
 
 /*
@@ -100,7 +113,19 @@ FizzBuzz
 */
 
 function fizzBuzz(num) {
-  // CODE HERE
+  let n = 1;
+  while(num >= n){
+    if(!(n%3) && !(n%5) ){
+      console.log("FizzBuzz");
+    } else if (!(n % 3)){
+      console.log("Fizz");
+    } else if (!(n % 5)) {
+      console.log("Buzz");
+    } else {
+      console.log(n);
+    }
+    n++;
+  }
 }
 
 /*
@@ -114,7 +139,15 @@ THE FIBONACCI SEQUENCE STARTS WITH 1 AND 1 AND THEN THE NEXT NUMBER IS THE ADDIT
 */
 
 function fibonacci(n) {
-  // CODE HERE
+  const arr = [];
+  for(let i = 0; i <= n; i++){
+    if(i === 0 || i === 1){
+      arr.push(1)
+    } else {
+      arr.push(arr[i-2] + arr[i-1])
+    }
+  }
+  return arr[n-1];
 }
 
 console.log(fibonacci(5));

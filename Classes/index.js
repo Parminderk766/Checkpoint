@@ -20,8 +20,16 @@ IT ALSO HAS ANOTHER PROPERTY type THAT EQUALS THE STRING 'parent class'
 */
 
 function MyFirstClass(name) {
-  // CODE HERE
+  let object = {};
+  object.name = name;
+  object.type = "parent class";
+  object.__proto__.getNumberOfChars = () => {
+    return name.length;
+  }
+  return object;
+
 }
+
 
 /*
 QUESTION 2
@@ -43,7 +51,9 @@ REMEMBER TO USE THE METHOD call AND FEED this AS THE FIRST ARGUMENT
 */
 
 function MySecondClass(name) {
-  // CODE HERE
+  let object = {type: MyFirstClass.type}
+  object.getPrototypeOf(MyFirstClass);
+  return object;
 }
 
 /*
@@ -77,6 +87,7 @@ TEST SECTION, PLEASE DO NOT TOUCH
 */
 
 const Mocha = require('mocha');
+const { prototype } = require('mocha');
 
 const runner = new Mocha({});
 

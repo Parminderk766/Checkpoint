@@ -39,9 +39,21 @@ pushTrue([1,2,3]) ===> [1, 2, 3, 'last element']
 */
 
 function pushString(arr) {
-  // CODE HERE
-  console.log(arr);
+  if(arr[0] === undefined && arr.length === 0){
+    arr[0] = "last element";
+  } else if(arr.length > 1){
+    arr[arr.length] = "last element";
+  }
+  
+  return arr;
 }
+console.log('----Question 1:----');
+
+pushString([])
+pushString([1])
+pushString([1,2,3])
+
+console.log([].length)
 
 /*
 QUESTION 2
@@ -58,8 +70,14 @@ mutateZeroElem([1,2,3]) ===> [1, 2, 3, true]
 */
 
 function push(array, value) {
-  // CODE HERE
+  array[array.length] = value;
+  return array;
 }
+console.log('----Question 2:----');
+
+console.log(push([], 'yo'))
+console.log(push([1], 'yo'))
+console.log(push([1,2,3], 9))
 
 /*
 QUESTION 3
@@ -80,8 +98,13 @@ true
 */
 
 function printElements(array) {
-  // CODE HERE
+  for(let i = 0; i < array.length; i++) {
+    console.log(array[i]);
+  }
 }
+
+console.log('----Question 3:----');
+printElements([1, true, 'I am the third element', 'my index is 3 confusing right'])
 
 /*
 QUESTION 4
@@ -109,8 +132,23 @@ unique([1,2,3,2,3,2]) ===> [1, 2, 3];
 */
 
 function unique(array) {
-  // CODE HERE
+  const obj = {};
+
+  const newarr = [];
+  array.forEach((ele) => {
+    if(!newarr.includes(ele)){
+      newarr.push(ele);
+    }
+  })
+
+
+  return newarr;
 }
+
+// unique([1,1,1,1,1,1])
+
+console.log('----Question 4:----');
+console.log(unique([1,2,3,2,3,2]))
 
 /*
 QUESTION 5
@@ -125,8 +163,22 @@ HINT USE AN INNER FOR-LOOP
 */
 
 function compare(array1, array2) {
-  // CODE HERE
+
+  const newArr = array1.filter((ele) => {
+    if(array2.includes(ele)){
+      return true;
+    } else {
+      return false;
+    }
+  })
+
+  if (newArr.length > 0) return true;
+  else return false;
+
 }
+
+console.log('----Question 5:----');
+console.log(compare([1,2,3,2,3,2,1], [1,1,1,1,1,1,1]))
 
 /*
 QUESTION 6
@@ -141,8 +193,24 @@ compareArrays([1, 2, 3, 4], [1, 2]) ====> [1, 2]
 */
 
 function compareArrays(array1, array2) {
-  // CODE HERE
+
+  const newArr = [];
+  
+  array1.forEach((ele) => {
+    if(array2.includes(ele) && !(newArr.includes(ele))){
+      newArr.push(ele);
+    }
+  })
+
+
+
+  return newArr;
+
 }
+
+console.log('----Question 6:----');
+console.log(compareArrays([1, 2, 3, 4], [1, 5, 6, 7, 8]))
+console.log(compareArrays([1, 2, 3, 4, 2, 2], [1, 2, 2, 2, 2, 2, 2]))
 
 /*
 QUESTION 7
@@ -156,8 +224,16 @@ compareArraysOpposite([1,2,3,4], [1,3]) ===> [2, 4]
 */
 
 function compareArraysOpposite(array1, array2) {
-  // CODE HERE
+  const newArr = array1.filter((ele) => {
+    if(!array2.includes(ele)){
+      return true;
+    } else return false;
+  })
+  return newArr;
 }
+
+console.log('----Question 7:----');
+console.log(compareArraysOpposite([1,2,3,4], [1,3]))
 
 /*
 QUESTION 8
@@ -181,8 +257,18 @@ retrieveValue(twoDimentionArray, 3, 1) ===> 1
 */
 
 function retrieveValue(arr, row, col) {
-  // CODE HERE
+  return arr[row][col];
 }
+
+console.log('----Question 8:----');
+var twoDimentionArray = [
+                          [0, 0, 0, 0],
+                          [0, 0, 0, 0],
+                          [0, 0, 0, 0],
+                          [0, 1, 0, 0],
+                        ]
+                        
+console.log(retrieveValue(twoDimentionArray, 3, 1))
 
 /*
 QUESTION 9
@@ -211,8 +297,19 @@ createTwoDArray(3, 5) ===> [
 */
 
 function createTwoDArray(row, col) {
-  // CODE HERE
+  const newArr = [];
+  for(let i = 0; i < row; i++){
+    let innerArr = [];
+    for(let j = 0; j < col; j++){
+      innerArr.push(0);
+    }
+    newArr.push(innerArr);
+  }
+  return newArr;
 }
+
+console.log('----Question 9:----');
+console.log(createTwoDArray(3, 5))
 
 /*
 TEST SECTION, PLEASE DO NOT TOUCH
