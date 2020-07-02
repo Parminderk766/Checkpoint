@@ -51,8 +51,9 @@ REMEMBER TO USE THE METHOD call AND FEED this AS THE FIRST ARGUMENT
 */
 
 function MySecondClass(name) {
-  let object = {type: MyFirstClass.type}
-  object.getPrototypeOf(MyFirstClass);
+  let object = MyFirstClass(name);
+  object.__proto__  = MyFirstClass;
+  object.constructor = MySecondClass;
   return object;
 }
 
